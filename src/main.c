@@ -12,9 +12,17 @@ int main() {
 
   InitWindow(screenWidth, screenHeight, "Space invaders");
 
-  Texture2D s10pf1 = LoadTexture("assets/10pf1.png"); 
-  Texture2D s10pf2 = LoadTexture("assets/10pf2.png"); 
-  
+  /*Image is10pf1 = LoadImage("assets/10pf1.png");
+  ImageResize(&is10pf1,32,16); 
+  Texture2D s10pf1 = LoadTextureFromImage(is10pf1);
+
+  Image is10pf2 = LoadImage("assets/10pf2.png"); 
+  ImageResize(&is10pf2,32,16); 
+  Texture2D s10pf2 = LoadTextureFromImage(is10pf2);*/
+
+  Texture2D s10pf1 = LoadRezisedImage("assets/10pf1.png",32,16);
+  Texture2D s10pf2 = LoadRezisedImage("assets/10pf2.png",32,16);
+
   // Global enemy state
   GlobalEnemyState enemyState;
   enemyState.move_last_time = start;
@@ -28,6 +36,9 @@ int main() {
   Enemy e10p;
   e10p.Textures = s10pTextures;
   e10p.maxTexture = lenght;
+  e10p.posX = 200;
+  e10p.posY = 200;
+
   Enemy* enemyArray = calloc(1,sizeof(e10p));
   enemyArray[0] = e10p;
 
@@ -35,9 +46,9 @@ int main() {
    
   while (!WindowShouldClose()) {
     BeginDrawing();
-    ClearBackground(RAYWHITE);
+    ClearBackground(BLACK);
     UpdateEnemies(enemyArray,LEN(enemyArray),&enemyState);    
-    DrawTexture(enemyArray[0].Textures[enemyArray[0].currentTexture],screenWidth/2, screenHeight/2,WHITE);
+    DrawEnemy(&enemyArray[0]);
     EndDrawing();
   }
   UnloadTexture(s10pf1);

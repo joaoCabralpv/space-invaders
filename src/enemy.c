@@ -15,17 +15,19 @@ bool UpdateCheck(GlobalEnemyState *state) {
         return false;
 }
 
-void UpdateEnemies(Enemy *enemy,int enemyLength ,GlobalEnemyState *state) {
-    //DrawTexture(enemy[0].Textures[enemy[0].currentTexture],200, 200,WHITE);
-    if (UpdateCheck(state)){
-        //printf("1");
-        //printf("len:%d",len);
+void DrawEnemy(Enemy *enemy) {
+        DrawTexture(enemy->Textures[enemy->currentTexture],enemy->posX,enemy->posY,WHITE);
+}
+
+
+void UpdateEnemies(Enemy *enemies,int enemyLength ,GlobalEnemyState *state) {
+    bool update = UpdateCheck(state);
         for (int i=0;i<=enemyLength;i++) {
-            enemy[i].currentTexture++;
-            enemy[i].currentTexture%=enemy[i].maxTexture;
-            //printf("%d\n");
-            //if(enemy[i].currentTexture>enemy[i].maxTexture)
-               // enemy[i].currentTexture=0;
+            if (update) {
+                //printf("1");
+                enemies[i].currentTexture++;
+                enemies[i].currentTexture%=enemies[i].maxTexture;
+            }
+            //DrawEnemy(&enemies[i]);
         }
     }
-}

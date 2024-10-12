@@ -4,6 +4,8 @@ struct enemy{
     Texture2D* Textures;
     int maxTexture;
     int currentTexture;
+    int posX;
+    int posY;
 };
 
 struct globalEnemyState{   
@@ -17,3 +19,4 @@ typedef struct globalEnemyState GlobalEnemyState;
 
 bool UpdateCheck(GlobalEnemyState *state);
 void UpdateEnemies(Enemy *enemy,int enemyLength ,GlobalEnemyState *state);
+void DrawEnemy(Enemy *enemy);
