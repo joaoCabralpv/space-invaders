@@ -21,7 +21,7 @@ struct globalEnemyState{
 typedef struct enemy Enemy;
 typedef struct globalEnemyState GlobalEnemyState;
 
-bool UpdateCheck(GlobalEnemyState *state);
+bool MoveCheck(GlobalEnemyState *state);
 void UpdateEnemies(Enemy *enemy, int enemyLength, GlobalEnemyState *state);
 void ChangeFrame(Enemy *enemy);
 void DrawEnemy(Enemy *enemy);
