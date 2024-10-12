@@ -1,0 +1,1 @@
+gcc -o SpaceInvaders.exe src/main.c -lraylib -lgdi32 -lwinmm -mwindows -O3
