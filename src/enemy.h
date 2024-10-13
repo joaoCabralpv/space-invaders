@@ -1,4 +1,13 @@
+#pragma once
 #include <raylib.h>
+
+struct margin {
+  int leftMargin;
+  int rightMargin;
+};
+
+typedef struct margin Margin;
+
 
 struct enemy{
     Texture2D* Textures;
@@ -16,6 +25,8 @@ struct globalEnemyState{
     int enemyHight;
     int direction; // 1->down -1-left
     bool goDown;
+    Margin horisontalMargins;
+    int bottomMargin;
 };
 
 typedef struct enemy Enemy;

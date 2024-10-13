@@ -1,0 +1,7 @@
+left   -> -X
+right  -> +X
+top    -> +Y
+bottom -> -Y
+
+0,0 -> top-right
+screenWidth,screenHeight -> bottom left
